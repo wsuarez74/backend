@@ -56,3 +56,8 @@ def evaluar_cliente(nombre: str, db: Session = Depends(get_db)):
     
     evaluacion = analizar_si_puede_comprar(db, cliente.id)
     return {"cliente": cliente.nombre, "evaluacion": evaluacion}
+
+# Ejecutar el servidor con Uvicorn
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=8000)
