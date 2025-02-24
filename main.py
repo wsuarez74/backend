@@ -13,14 +13,6 @@ def get_db():
     finally:
         db.close()
 
-@app.get("/")
-def read_root():
-    return {"message": "El backend esta corriendo correctamente"}
-
-@app.get("/ping")
-def ping():
-    return {"message":"servidor pong"}
-
 @app.get("/total_compras/{nombre}")
 def total_compras(nombre: str, db: Session = Depends(get_db)):
     cliente = obtener_cliente_por_nombre(db, nombre)
